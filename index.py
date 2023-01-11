@@ -106,3 +106,7 @@ while True:
             break
     except:
         print("Invalid choice")
+        
+# selected network
+hackbssid = active_wireless_networks[int(choice)]["BSSID"]
+hackChannel = active_wireless_networks[int(choice)]["channel"].strip()
