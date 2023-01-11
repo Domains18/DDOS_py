@@ -98,3 +98,11 @@ try:
         time.sleep(1)
 except KeyboardInterrupt:
     print("Stopping scan")
+
+while True:
+    choice = input("Please select a network: ")
+    try:
+        if active_wireless_networks[int(choice)]:
+            break
+    except:
+        print("Invalid choice")
