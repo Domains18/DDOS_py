@@ -64,3 +64,6 @@ kill_conflict_process = subprocess.run(["sudo", "airmon-ng", "check", "kill"])
 # monitored mode
 print("Initializing monitor mode")
 put_in_monitored_mode = subprocess.run(["sudo", "airmon-ng", "start", hacknic])
+
+discover_access_points = subprocess.Popen([
+    "sudo", "airodump-ng", "-w", "file", "--write-interval", "1", "csv", hacknic + "mon"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
