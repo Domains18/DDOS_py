@@ -35,3 +35,6 @@ for file_name in os.listdir():
             print("Directory already exists")
         timestamp = datetime.now()
         shutil.move(file_name, directory + "/old_csv" + str(timestamp) + "-" + file_name)
+        
+wlan_pattern = re.compile("wlan[0-9] +")
+check_wifi_result = wlan_pattern.findall(subprocess.run(["iwconfig"], capture_output=True).stdout.decode("utf-8"))
