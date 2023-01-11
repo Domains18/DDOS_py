@@ -21,3 +21,17 @@ def check_for_essid(essid, lst):
 
 # Basic user interface
 print(" To Whom Much is Given, Much is Expected")
+
+if not 'SUDO_UID' in os.environ.keys():
+    print("Please run this script with sudo")
+    exit()
+    
+for file_name in os.listdir():
+    if ".csv" in file_name:
+        directory = os.getcwd()
+        try:
+            os.mkdir(directory + "/old_csv")
+        except:
+            print("Directory already exists")
+        timestamp = datetime.now()
+        shutil.move(file_name, directory + "/old_csv" + str(timestamp) + "-" + file_name)
