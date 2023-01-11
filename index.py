@@ -56,3 +56,11 @@ while True:
     except:
         print("Invalid choice")
 
+# hacknic doesnt mean anything
+hacknic =  check_wifi_result[(int (wifi_interface_choice))].strip()
+print(f"Selected wifi adapter: {hacknic}")
+kill_conflict_process = subprocess.run(["sudo", "airmon-ng", "check", "kill"])
+
+# monitored mode
+print("Initializing monitor mode")
+put_in_monitored_mode = subprocess.run(["sudo", "airmon-ng", "start", hacknic])
