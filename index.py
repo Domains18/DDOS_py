@@ -38,3 +38,10 @@ for file_name in os.listdir():
         
 wlan_pattern = re.compile("wlan[0-9] +")
 check_wifi_result = wlan_pattern.findall(subprocess.run(["iwconfig"], capture_output=True).stdout.decode("utf-8"))
+
+# wifi adapter == false
+if len(check_wifi_result) == 0:
+    print("No wifi adapter found")
+    exit()
+
+print("Available wifi adapters: ")
