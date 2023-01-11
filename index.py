@@ -45,3 +45,6 @@ if len(check_wifi_result) == 0:
     exit()
 
 print("Available wifi adapters: ")
+for index, item in enumerate(check_wifi_result):
+    print(f"{index + 1}. {item.strip()}")
+    
