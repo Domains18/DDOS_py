@@ -120,3 +120,4 @@ except KeyboardInterrupt:
     print("Stopping deauth")
     subprocess.run(
         ["airmon-ng", "stop", check_wifi_result[int(wifi_interface_choice)] + "mon"])
+    print("Cleaning up...")
