@@ -48,3 +48,11 @@ print("Available wifi adapters: ")
 for index, item in enumerate(check_wifi_result):
     print(f"{index + 1}. {item.strip()}")
     
+while True:
+    wifi_interface_choice = input("Please select a wifi adapter: ")
+    try:
+        if check_wifi_result[int(wifi_interface_choice) - 1]:
+            break
+    except:
+        print("Invalid choice")
+
